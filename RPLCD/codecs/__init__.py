@@ -1,7 +1,6 @@
 import codecs
 
-import hd44780_a00
-import hd44780_a02
+from . import hd44780_a00, hd44780_a02
 
 
 class HD44780A00Codec(codecs.Codec):
@@ -37,4 +36,5 @@ def lookup(name):
         return None
 
 
-codecs.register(lookup)
+def register():
+    codecs.register(lookup)
