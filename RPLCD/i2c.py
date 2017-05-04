@@ -100,8 +100,8 @@ class CharLCD(BaseCharLCD):
     def _send(self, value, mode):
         """Send the specified value to the display with automatic 4bit / 8bit selection.
         The rs_mode is either ``common.RS_DATA`` or ``common.RS_INSTRUCTION``."""
-        self._write4bits(mode | (value & 0xF0))
-        self._write4bits(mode | ((value << 4) & 0xF0))
+        self._write4bits(mode | ((value >> 4) & 0x0F))
+        self._write4bits(mode | (value & 0x0F))
 
     def _write4bits(self, value):
         """Write 4 bits of data into the data bus."""

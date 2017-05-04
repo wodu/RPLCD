@@ -18,7 +18,7 @@ except NameError:
     unichr = chr
 
 
-lcd = CharLCD(0x3f)
+lcd = CharLCD(0x20, cols=16, rows=4)
 # see note in test_16x2.py about configuring your backlight, if you have one
 
 input('Display should be blank. ')
